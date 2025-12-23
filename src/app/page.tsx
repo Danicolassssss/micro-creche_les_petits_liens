@@ -3,6 +3,16 @@ import { MobileHeader } from "@/components/MobileHeader";
 import { Section } from "@/components/Section";
 import { ArrowRight, Heart, Users, Home as HomeIcon, Calendar, Euro, Mail } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const Map = dynamic(() => import("@/components/Map"), {
+  loading: () => (
+    <div className="w-full h-full bg-secondary/10 rounded-xl animate-pulse flex items-center justify-center">
+      <span className="text-secondary/50">Chargement de la carte...</span>
+    </div>
+  ),
+});
 
 export default function Home() {
 
@@ -13,13 +23,24 @@ export default function Home() {
 
       <div className="lg:ml-[20vw] relative">
         {/* Hero Section */}
-        <Section id="hero" className="bg-secondary/10 min-h-screen">
+        <Section id="hero" className="relative overflow-hidden min-h-screen">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/accueil.jpeg"
+              alt="Micro-crèche Les Petits Liens"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/30" />
+          </div>
 
-          <div className="max-w-4xl">
-            <h1 className="font-display text-4xl md:text-6xl font-bold text-text-main mb-6 leading-tight">
+          <div className="max-w-4xl relative z-10">
+            <h1 className="font-display text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
               Une micro-crèche chaleureuse au cœur du quartier.
             </h1>
-            <p className="text-xl text-text-main/80 mb-8 leading-relaxed max-w-2xl">
+            <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
               Un lieu design, inclusif et à taille humaine pour accompagner les premières années de votre enfant.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -32,7 +53,7 @@ export default function Home() {
               </Link>
               <Link
                 href="#project"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-text-main border border-secondary/30 rounded-lg font-semibold hover:bg-secondary/10 transition-colors"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/30 rounded-lg font-semibold hover:bg-white/20 transition-colors"
               >
                 Découvrir le projet social
               </Link>
@@ -108,28 +129,55 @@ export default function Home() {
           subtitle="Un environnement apaisant, conçu avec des matériaux naturels et non toxiques."
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Placeholder for images - using colored divs for now */}
-            <div className="aspect-video bg-secondary/20 rounded-xl flex items-center justify-center relative group overflow-hidden">
-              <span className="text-secondary font-medium">Espace Vie & Jeux</span>
-              <div className="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="aspect-video relative group overflow-hidden rounded-xl">
+              <Image
+                src="/espacevieetjeu.jpeg"
+                alt="Espace Vie & Jeux"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+              <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-display text-xl font-bold drop-shadow-md z-10">Espace Vie & Jeux</span>
+              <div className="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity text-text-main z-10">
                 Luminosité naturelle
               </div>
             </div>
-            <div className="aspect-video bg-secondary/30 rounded-xl flex items-center justify-center relative group overflow-hidden">
-              <span className="text-secondary font-medium">Espace Motricité</span>
-              <div className="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="aspect-video relative group overflow-hidden rounded-xl">
+              <Image
+                src="/espacemotricite.jpeg"
+                alt="Espace Motricité"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+              <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-display text-xl font-bold drop-shadow-md z-10">Espace Motricité</span>
+              <div className="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity text-text-main z-10">
                 Matériaux bois
               </div>
             </div>
-            <div className="aspect-video bg-secondary/10 rounded-xl flex items-center justify-center relative group overflow-hidden">
-              <span className="text-secondary font-medium">Espace Sieste</span>
-              <div className="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="aspect-video relative group overflow-hidden rounded-xl">
+              <Image
+                src="/espacesieste.jpeg"
+                alt="Espace Sieste"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+              <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-display text-xl font-bold drop-shadow-md z-10">Espace Sieste</span>
+              <div className="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity text-text-main z-10">
                 Calme & Douceur
               </div>
             </div>
-            <div className="aspect-video bg-accent/10 rounded-xl flex items-center justify-center relative group overflow-hidden">
-              <span className="text-accent font-medium">Coin Parents</span>
-              <div className="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="aspect-video relative group overflow-hidden rounded-xl">
+              <Image
+                src="/coinparent.jpeg"
+                alt="Coin Parents"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+              <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-display text-xl font-bold drop-shadow-md z-10">Coin Parents</span>
+              <div className="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity text-text-main z-10">
                 Convivialité
               </div>
             </div>
@@ -144,16 +192,65 @@ export default function Home() {
           className="bg-secondary/5"
         >
           <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-white p-6 rounded-xl shadow-sm border border-secondary/10 text-center">
-                <div className="w-24 h-24 bg-secondary/20 rounded-full mx-auto mb-4" />
-                <h3 className="font-display text-lg font-bold mb-1">Prénom Nom</h3>
-                <p className="text-accent text-sm font-medium mb-3">Éducatrice de Jeunes Enfants</p>
-                <p className="text-text-main/70 text-sm">
-                  "Accompagner l'enfant vers l'autonomie est ma passion depuis 10 ans."
-                </p>
+            {/* Profil 1 */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-secondary/10 text-center flex flex-col items-center">
+              <div className="w-32 h-32 relative mb-4 rounded-full overflow-hidden border-4 border-secondary/20">
+                <Image
+                  src="/profil1.jpeg"
+                  alt="Directrice"
+                  fill
+                  className="object-cover"
+                />
               </div>
-            ))}
+              <h3 className="font-display text-lg font-bold mb-1">Amel Rahmani</h3>
+              <p className="text-accent text-sm font-medium mb-3">Directrice de la micro-crèche</p>
+              <p className="text-text-main/70 text-sm italic mb-4">
+                « Créer un lieu où chaque enfant se sent en confiance et chaque parent écouté est au cœur de mon engagement depuis plusieurs années. »
+              </p>
+              <p className="text-text-main/60 text-xs leading-relaxed">
+                Diplômée en gestion de structures petite enfance. Porteuse du projet social et du lien avec les familles et les partenaires du quartier.
+              </p>
+            </div>
+
+            {/* Profil 2 */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-secondary/10 text-center flex flex-col items-center">
+              <div className="w-32 h-32 relative mb-4 rounded-full overflow-hidden border-4 border-secondary/20">
+                <Image
+                  src="/profil2.jpeg"
+                  alt="Éducatrice de Jeunes Enfants"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <h3 className="font-display text-lg font-bold mb-1">Claire Dubois</h3>
+              <p className="text-accent text-sm font-medium mb-3">Éducatrice de Jeunes Enfants</p>
+              <p className="text-text-main/70 text-sm italic mb-4">
+                « Accompagner l’enfant vers l’autonomie, dans le respect de son rythme et de sa personnalité, est ce qui me passionne au quotidien. »
+              </p>
+              <p className="text-text-main/60 text-xs leading-relaxed">
+                Référente de la pédagogie inspirée de Montessori et Loczy. Met en place des ateliers d’exploration, de motricité libre et de langage.
+              </p>
+            </div>
+
+            {/* Profil 3 */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-secondary/10 text-center flex flex-col items-center">
+              <div className="w-32 h-32 relative mb-4 rounded-full overflow-hidden border-4 border-secondary/20">
+                <Image
+                  src="/profil3.jpeg"
+                  alt="Auxiliaire de puériculture"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <h3 className="font-display text-lg font-bold mb-1">Sophie Morel</h3>
+              <p className="text-accent text-sm font-medium mb-3">Auxiliaire de puériculture</p>
+              <p className="text-text-main/70 text-sm italic mb-4">
+                « Offrir un environnement sécurisant, doux et chaleureux permet à chaque tout-petit de grandir sereinement. »
+              </p>
+              <p className="text-text-main/60 text-xs leading-relaxed">
+                Accompagne les soins du quotidien (repas, sieste, changes) dans une relation individualisée. Participe aux temps d’éveil et aux échanges quotidiens avec les parents.
+              </p>
+            </div>
           </div>
         </Section>
 
@@ -188,8 +285,8 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="bg-secondary/10 rounded-xl h-64 flex items-center justify-center">
-              <span className="text-secondary font-medium">Carte Google Maps</span>
+            <div className="h-64 md:h-auto min-h-[300px] rounded-xl overflow-hidden shadow-sm border border-secondary/10 relative z-0">
+              <Map />
             </div>
           </div>
         </Section>
