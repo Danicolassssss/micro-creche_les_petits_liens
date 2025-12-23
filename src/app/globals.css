@@ -25,8 +25,8 @@
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+  /* scroll-behavior: smooth; - Managed by Lenis */
+  /* scroll-snap-type removed for smoother gliding feel */
   scroll-padding-top: 4rem; /* Height of mobile header */
 }
 

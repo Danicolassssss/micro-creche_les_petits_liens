@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${inter.variable} antialiased font-sans bg-primary text-text-main`}
       >
+        <SmoothScrolling />
         {children}
       </body>
     </html>

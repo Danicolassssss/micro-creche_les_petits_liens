@@ -12,7 +12,7 @@ export function Section({ id, title, subtitle, children, className, ...props }: 
   return (
     <section
       id={id}
-      className={cn("min-h-screen py-16 px-6 md:px-12 lg:px-20 flex flex-col justify-center snap-start", className)}
+      className={cn("min-h-screen py-16 px-6 md:px-12 lg:px-20 flex flex-col justify-center", className)}
       {...props}
     >
       {(title || subtitle) && (
